@@ -1,13 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Typography, Button } from 'antd';
 
 import './App.css';
 import 'antd/dist/antd.css';
+import logo from './logo.svg';
 
 const { Title } = Typography;
 
-function App() {
+function App () {
   return (
     <div className="App">
       <header className="App-header">
