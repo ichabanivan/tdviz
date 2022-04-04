@@ -19,11 +19,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": "./",
     "paths": {
-      "~constants/*": ["./src/constants/*"],
+      "~layouts/*": ["./src/layouts/*"],
+      "~services/*": ["./src/services/*"],
+      "~constants/*": ["./src/constants/*"]
     }
-  },
-  "include": [
-    "src"
-  ]
+  }
 }
