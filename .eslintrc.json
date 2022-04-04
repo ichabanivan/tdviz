@@ -134,7 +134,7 @@
     "semi": ["warn", "always"],
     "no-spaced-func": ["error"],
     "no-unused-labels": ["error"],
-    "no-undefined": ["error"],
+    "no-undefined": ["warn"],
     "new-parens": ["error"],
     "require-yield": ["error"],
     "unicode-bom": ["error"],
