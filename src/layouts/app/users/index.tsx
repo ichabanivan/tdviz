@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '~constants/routes';
 
 import List from './list';
 import Edit from './edit';

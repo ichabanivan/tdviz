@@ -33,7 +33,37 @@
       {
         "pathGroups": [
           {
+            "pattern": "~apollo/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "~services/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
             "pattern": "~constants/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "~components/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "~layouts/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "~styles/**",
+            "group": "parent",
+            "position": "before"
+          },
+          {
+            "pattern": "~assets/**",
             "group": "parent",
             "position": "before"
           }

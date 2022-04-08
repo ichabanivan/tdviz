@@ -1,21 +1,40 @@
 import * as yup from 'yup';
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import React, { memo, useCallback, useMemo } from 'react';
 import { Button, CardActions, CardContent } from '@mui/material';
-import { Link } from 'react-router-dom';
 
-import * as ROUTES from '../../../constants/routes';
+import { useSignInMutation } from '~apollo/graphql';
+
+import * as ROUTES from '~constants/routes';
 
 import { SignInForm } from './form';
 
+interface ISignInForm {
+  email: string
+  password: string
+}
+
 export const SignIn = memo(() => {
-  const onSubmit = useCallback((values) => console.log(values), []);
-  const initialValues = useMemo(() => ({
-    firstName: null,
-    lastName: null,
-    email: null,
-    password: null,
-    confirmPassword: null,
+  const [signIn] = useSignInMutation({
+    onError: (error) => {
+      console.log('error', error);
+    }
+  });
+
+  const onSubmit = useCallback(async (values: ISignInForm) => {
+    await signIn({
+      variables: {
+        input: {
+          email: values.email,
+          password: values.password,
+        }
+      }
+    });
+  }, [signIn]);
+  const initialValues: ISignInForm = useMemo(() => ({
+    email: 'ichabanivan@gmail.com',
+    password: 'Asdf1234',
   }), []);
   // NOTE Data for current screen
   const validationSchema = useMemo(() => yup.object().shape({

@@ -1,4 +1,5 @@
-import _ from '../lodash';
+/* eslint-disable */
+import _ from '~services/lodash';
 
 export interface ParameterOptions<Type, Default> {
   name: string

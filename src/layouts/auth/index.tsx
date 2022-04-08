@@ -2,12 +2,14 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Card, CardMedia, Grid, Divider } from '@mui/material';
 
-import bgImg from '../../assets/bg.jpg';
-import logoSvg from '../../assets/logo.svg';
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '~constants/routes';
+
+import logoSvg from '~assets/logo.svg';
+import bgImg from '~assets/bg.jpg';
 
 import { SignUp } from './sign-up';
 import { SignIn } from './sign-in';
+
 
 export const Auth = () => <Grid container minHeight="100vh" p={2} style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover' }}>
   <Grid item xs={12} md={6} lg={4} m="auto">

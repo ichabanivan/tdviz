@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import * as ROUTES from '../constants/routes';
+import * as ROUTES from '~constants/routes';
 
 import { App } from './app';
 import { Auth } from './auth';
@@ -9,7 +9,7 @@ import { Auth } from './auth';
 export const Root = () => {
   const initialized = true;
   const health = true;
-  const auth = !false;
+  const auth = false;
   if (!health) {
     return <span>Site is under Maintenance</span>;
   }
