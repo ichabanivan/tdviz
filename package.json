@@ -33,6 +33,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
+    "editorconfig:checker": "editorconfig-checker --exclude '.git|node_modules'",
     "generate": "DOTENV_CONFIG_PATH=./.env graphql-codegen --config codegen.yml --require dotenv/config"
   },
   "eslintConfig": {
@@ -68,6 +69,7 @@
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "craco-alias": "^3.0.1",
+    "editorconfig-checker": "^4.0.2",
     "eslint": "^8.12.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
