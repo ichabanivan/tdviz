@@ -1,9 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material';
 import { ApolloProvider } from '@apollo/client';
-
+import { BrowserRouter } from 'react-router-dom';
 
 import client from '~apollo/client';
+
+import '~services/i18n';
 
 import { theme } from '~styles/theme';
 
@@ -13,9 +15,9 @@ function App () {
   return (
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
-        <div className="App" style={{ height: '100vh' }}>
+        <BrowserRouter>
           <Root />
-        </div>
+        </BrowserRouter>
       </ApolloProvider>
     </ThemeProvider>
   );

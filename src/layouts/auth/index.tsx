@@ -5,13 +5,12 @@ import { Card, CardMedia, Grid, Divider } from '@mui/material';
 import * as ROUTES from '~constants/routes';
 
 import logoSvg from '~assets/logo.svg';
-import bgImg from '~assets/bg.jpg';
+import { bg } from '~assets/cloudinary';
 
 import { SignUp } from './sign-up';
 import { SignIn } from './sign-in';
 
-
-export const Auth = () => <Grid container minHeight="100vh" p={2} style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover' }}>
+export const Auth = () => <Grid container minHeight="100vh" p={2} style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
   <Grid item xs={12} md={6} lg={4} m="auto">
     <Card>
       <CardMedia
