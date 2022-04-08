@@ -16,7 +16,7 @@ export const Auth = () => <Grid container minHeight="100vh" p={2} style={{ backg
       <CardMedia
         component="img"
         image={logoSvg}
-        alt="Logo Safe Health"
+        alt="Logo Save Health"
         style={{ width: 280, margin: '20px auto' }}
       />
       <Divider />
