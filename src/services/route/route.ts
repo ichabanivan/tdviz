@@ -1,10 +1,11 @@
 import qs from 'qs';
 
-import _ from '../lodash';
+import _ from '~services/lodash';
 
 import { history } from './history';
 import { Parameter } from './parameter';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface RouteOptions {
   REGEXP?: RegExp
   isActive?: (url: string) => boolean
@@ -48,7 +49,9 @@ export class Route {
   };
 
   ROUTE = '';
+
   ROUTE_RELATIVE = '';
+
   ROUTE_RELATIVE_DEEP = '';
 
   REGEXP: RegExp;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '~constants/routes';
 
 import { Users } from './users';
 

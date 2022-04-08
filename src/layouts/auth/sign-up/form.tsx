@@ -1,10 +1,10 @@
-import { Form, useFormikContext } from 'formik';
 import React, { memo, useState } from 'react';
+import { Form, useFormikContext } from 'formik';
 import { Button, Grid, Typography } from '@mui/material';
 
-import { FInput } from '../../../components/forms/input';
-import { VisibilityAdornment } from '../../../components/forms/helpers/visibility-adornment';
-import { validationStyles } from '../../../components/forms/helpers/helpers';
+import { FInput } from '~components/forms/input';
+import { validationStyles } from '~components/forms/helpers/helpers';
+import { VisibilityAdornment } from '~components/forms/helpers/visibility-adornment';
 
 export const SignUpForm = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +29,7 @@ export const SignUpForm = memo(() => {
           name="email"
           margin="normal"
           label="Email Address"
+          disabled={isSubmitting}
           placeholder="Email Address"
         />
       </Grid>
@@ -40,6 +41,7 @@ export const SignUpForm = memo(() => {
           name="firstName"
           margin="normal"
           label="First Name"
+          disabled={isSubmitting}
           placeholder="First Name"
         />
       </Grid>
@@ -52,17 +54,19 @@ export const SignUpForm = memo(() => {
           margin="normal"
           label="Last Name"
           placeholder="Last Name"
+          disabled={isSubmitting}
         />
       </Grid>
       <Grid item xs={12} md={6}>
         <FInput
           size="small"
           fullWidth
-          type={isVisible ? 'text' : 'password'}
           name="password"
           margin="normal"
           label="Password"
           placeholder="Password"
+          disabled={isSubmitting}
+          type={isVisible ? 'text' : 'password'}
           InputProps={(valid, invalid) => ({
             endAdornment: <VisibilityAdornment
               isVisible={isVisible}
@@ -75,13 +79,14 @@ export const SignUpForm = memo(() => {
       </Grid>
       <Grid item xs={12} md={6}>
         <FInput
-          size="small"
           fullWidth
-          type={isVisible ? 'text' : 'password'}
-          name="confirmPassword"
+          size="small"
           margin="normal"
+          name="confirmPassword"
+          disabled={isSubmitting}
           label="Confirm Password"
           placeholder="Confirm Password"
+          type={isVisible ? 'text' : 'password'}
           InputProps={(valid, invalid) => ({
             endAdornment: <VisibilityAdornment
               isVisible={isVisible}
@@ -98,6 +103,7 @@ export const SignUpForm = memo(() => {
         fullWidth
         type="submit"
         variant="contained"
+        disabled={isSubmitting}
         color={validationStyles(valid, invalid)}
       >
           Sign Up

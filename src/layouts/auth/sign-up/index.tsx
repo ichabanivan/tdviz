@@ -4,18 +4,26 @@ import { Link } from 'react-router-dom';
 import React, { memo, useCallback, useMemo } from 'react';
 import { CardContent, CardActions, Button } from '@mui/material';
 
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '~constants/routes';
 
 import { SignUpForm } from './form';
 
+interface ISignUpForm {
+  email: string
+  password: string
+  lastName: string
+  firstName: string
+  confirmPassword: string
+}
+
 export const SignUp = memo(() => {
-  const onSubmit = useCallback((values) => console.log(values), []);
-  const initialValues = useMemo(() => ({
-    firstName: null,
-    lastName: null,
-    email: null,
-    password: null,
-    confirmPassword: null,
+  const onSubmit = useCallback((values: ISignUpForm) => console.log(values), []);
+  const initialValues: ISignUpForm = useMemo(() => ({
+    email: '',
+    lastName: '',
+    password: '',
+    firstName: '',
+    confirmPassword: '',
   }), []);
   // NOTE Data for current screen
   const validationSchema = useMemo(() => yup.object().shape({

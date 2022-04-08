@@ -1,10 +1,10 @@
-import { Form, useFormikContext } from 'formik';
 import React, { memo, useState } from 'react';
-import {Button, CardContent, Grid, Typography} from '@mui/material';
+import { Form, useFormikContext } from 'formik';
+import { Button, Grid, Typography } from '@mui/material';
 
-import { FInput } from '../../../components/forms/input';
-import { VisibilityAdornment } from '../../../components/forms/helpers/visibility-adornment';
-import { validationStyles } from '../../../components/forms/helpers/helpers';
+import { FInput } from '~components/forms/input';
+import { validationStyles } from '~components/forms/helpers/helpers';
+import { VisibilityAdornment } from '~components/forms/helpers/visibility-adornment';
 
 export const SignInForm = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,12 +23,13 @@ export const SignInForm = memo(() => {
     <Grid container spacing={2} mb={4}>
       <Grid item xs={12}>
         <FInput
-          size="small"
           fullWidth
+          size="small"
           type="text"
           name="email"
           margin="normal"
           label="Email Address"
+          disabled={isSubmitting}
           placeholder="Email Address"
         />
       </Grid>
@@ -36,11 +37,12 @@ export const SignInForm = memo(() => {
         <FInput
           size="small"
           fullWidth
-          type={isVisible ? 'text' : 'password'}
           name="password"
           margin="normal"
           label="Password"
           placeholder="Password"
+          disabled={isSubmitting}
+          type={isVisible ? 'text' : 'password'}
           InputProps={(valid, invalid) => ({
             endAdornment: <VisibilityAdornment
               isVisible={isVisible}
@@ -57,6 +59,7 @@ export const SignInForm = memo(() => {
         fullWidth
         type="submit"
         variant="contained"
+        disabled={isSubmitting}
         color={validationStyles(valid, invalid)}
       >
         Sign In

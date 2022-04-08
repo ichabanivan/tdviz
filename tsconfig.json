@@ -19,11 +19,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "~layouts/*": ["./src/layouts/*"],
-      "~services/*": ["./src/services/*"],
-      "~constants/*": ["./src/constants/*"]
+      "~apollo/*": ["./apollo/*"],
+      "~assets/*": ["./assets/*"],
+      "~styles/*": ["./styles/*"],
+      "~layouts/*": ["./layouts/*"],
+      "~services/*": ["./services/*"],
+      "~constants/*": ["./constants/*"],
+      "~components/*": ["./components/*"]
     }
   }
 }

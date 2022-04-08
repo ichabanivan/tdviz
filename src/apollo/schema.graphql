@@ -1,0 +1,53 @@
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+input FindUserInput {
+  email: String!
+  id: Int!
+  password: String
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  deleteUser(input: [Int!]!): Boolean!
+  signIn(input: SignInInputDto!): TokenDto!
+  signUp(input: SignUpInputDto!): TokenDto!
+  updateUser(input: UpdateUserInput!): User!
+}
+
+type Query {
+  filterUsers(input: FindUserInput!): [User!]!
+  getUserById(id: Float!): User!
+  test: String!
+}
+
+input SignInInputDto {
+  email: String!
+  password: String!
+}
+
+input SignUpInputDto {
+  email: String!
+  password: String!
+}
+
+type TokenDto {
+  accessToken: String!
+  accessTokenValiditySeconds: Int!
+  refreshToken: String!
+  refreshTokenValiditySeconds: Int!
+}
+
+input UpdateUserInput {
+  email: String!
+  id: Int!
+  password: String
+}
+
+type User {
+  email: String!
+  enabled: Boolean!
+  id: Int!
+}

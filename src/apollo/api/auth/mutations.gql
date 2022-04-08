@@ -1,0 +1,5 @@
+mutation SignIn ($input: SignInInputDto!) {
+    signIn (input: $input) {
+        ...Token
+    }
+}
