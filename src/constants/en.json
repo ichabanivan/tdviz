@@ -1,7 +1,9 @@
 {
   "translation": {
     "project": "Safe Health",
-    "system": {},
+    "system": {
+      "open-menu": "Open Menu"
+    },
     "actions": {
       "ok": "Ok",
       "no": "No",
@@ -116,14 +118,14 @@
           }
         }
       },
-      "user": {
-        "title": "User"
-      },
       "system": {
         "title": "System",
         "menu": {
           "home": "Home",
           "users": "Users"
+        },
+        "users": {
+          "title": "Users"
         }
       }
     }

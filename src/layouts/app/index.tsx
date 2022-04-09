@@ -3,13 +3,17 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import * as ROUTES from '~constants/routes';
 
-import { Users } from './users';
+import { Layout } from '~layouts/app/layout';
+
+import { System } from './system';
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path={ROUTES.USERS.ROUTE_RELATIVE_DEEP} element={<Users />} />
-      <Route path="/*" element={<Navigate replace to={ROUTES.USERS.LINK()} />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path={ROUTES.SYSTEM.ROUTE_RELATIVE_DEEP} element={<System />} />
+        <Route path="/*" element={<Navigate replace to={ROUTES.SYSTEM.LINK()} />} />
+      </Routes>
+    </Layout>
   );
 };

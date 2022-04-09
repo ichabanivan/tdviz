@@ -10,7 +10,9 @@ export const LAYOUT_APP = `${BASE_PATH}app`;
 export const SIGN_IN = defineRoute(LAYOUT_AUTH, 'sign-in', {});
 export const SIGN_UP = defineRoute(LAYOUT_AUTH, 'sign-up', {});
 
-export const USERS = defineRoute(LAYOUT_APP, 'users', {});
+export const SYSTEM = defineRoute(LAYOUT_APP, 'system', {});
+
+export const USERS = defineRoute(SYSTEM.ROUTE, 'users', {});
 
 export const USERS_LIST = defineRoute(USERS.ROUTE, 'list', {
   query: [
