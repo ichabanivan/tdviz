@@ -1,71 +1,21 @@
-import * as yup from 'yup';
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
-import React, { memo, useCallback, useMemo } from 'react';
-import { CardContent, CardActions, Button } from '@mui/material';
-
-import * as ROUTES from '~constants/routes';
+import React, { memo } from 'react';
+import { CardContent } from '@mui/material';
 
 import { SignUpForm } from './form';
-
-interface ISignUpForm {
-  email: string
-  password: string
-  lastName: string
-  firstName: string
-  confirmPassword: string
-}
+import { useController } from './controller';
 
 export const SignUp = memo(() => {
-  const onSubmit = useCallback((values: ISignUpForm) => console.log(values), []);
-  const initialValues: ISignUpForm = useMemo(() => ({
-    email: '',
-    lastName: '',
-    password: '',
-    firstName: '',
-    confirmPassword: '',
-  }), []);
-  // NOTE Data for current screen
-  const validationSchema = useMemo(() => yup.object().shape({
-    firstName: yup.string()
-      .nullable()
-      .required('Field is required'),
-    lastName: yup.string()
-      .nullable()
-      .required('Field is required'),
-    email: yup.string()
-      .nullable()
-      .required('Field is required')
-      .email('Email is invalid'),
-    password: yup.string()
-      .nullable()
-      .required('Field is required')
-      .min(8, 'Password should have at least 8 characters'),
-    confirmPassword: yup.string()
-      .nullable()
-      .required('Field is required')
-      .test('passwords-match', 'Passwords must match', function (value) {
-        return this.parent.password === value;
-      })
-  }), []);
+  const { loading, onSubmit, initialValues, validationSchema } = useController();
 
-  return <>
+  return (
     <CardContent>
       <Formik
         onSubmit={onSubmit}
-        component={SignUpForm}
         initialValues={initialValues}
         validationSchema={validationSchema}
+        component={() => <SignUpForm loading={loading} />}
       />
     </CardContent>
-    <CardActions sx={{ mb: 2 }}>
-      <Button
-        fullWidth
-        component={Link}
-        to={ROUTES.SIGN_IN.LINK()}
-      >
-        Sign In
-      </Button>
-    </CardActions>
-  </>;
+  );
 });

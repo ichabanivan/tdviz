@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { defineRoute, ANNOTATION } from '../services/route';
+import { defineRoute, ANNOTATION } from '~services/route';
 
 const BASE_PATH = '/';
 

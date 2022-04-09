@@ -4,7 +4,7 @@ watchConfig:
 overwrite: true
 schema:
   - "${REACT_APP_BE_PROTOCOL}://${REACT_APP_BE_HOST}:${REACT_APP_BE_PORT}/${REACT_APP_BE_URL}":
-#      headers:
+      headers:
 #        Access-Domain: "${REACT_APP_ACCESS_DOMAIN}"
 #        Authorization: "${REACT_APP_AUTH_BASIC_TITLE} ${REACT_APP_AUTH_BASIC_VALUE}"
 documents: "src/apollo/api/**/*.gql"

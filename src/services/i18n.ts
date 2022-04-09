@@ -1,4 +1,4 @@
-import i18n, {TFunctionResult} from 'i18next';
+import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import en from '~constants/en.json';
@@ -6,7 +6,7 @@ import ua from '~constants/ua.json';
 import config from '~constants/config';
 
 export interface ITranslation {
-  t: (value: string) => string
+  t: (value: string, options?: any) => string
 }
 
 export enum LANGUAGES {
@@ -29,6 +29,7 @@ const customFormatter = (value: any, format: any, ignoredLanguage: any) => {
   }
 };
 
+// eslint-disable-next-line import/no-named-as-default-member
 i18n
   // NOTE pass the i18n instance to react-i18next.
   .use(initReactI18next)
@@ -47,6 +48,6 @@ i18n
       en,
       ua,
     }
-  })
+  });
 
 export default i18n;
