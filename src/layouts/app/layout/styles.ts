@@ -36,11 +36,10 @@ export const DrawerStyled = styled(Drawer, { shouldForwardProp: (prop) => prop !
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    ...(open && {
+    ...(open ? {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open && {
+    } : {
       ...closedMixin(theme),
       '& .MuiDrawer-paper': closedMixin(theme),
     }),
