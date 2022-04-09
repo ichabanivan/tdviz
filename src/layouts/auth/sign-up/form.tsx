@@ -139,7 +139,7 @@ export const SignUpForm = memo<SignUpFormProps>(({ loading }) => {
           component={Link}
           variant="outlined"
           disabled={isDisabled}
-          to={ROUTES.SIGN_UP.LINK()}
+          to={ROUTES.SIGN_IN.LINK()}
           startIcon={<AppRegistrationIcon />}
         >
           { t('layouts.auth.sign-up.cta.sign-in') }
