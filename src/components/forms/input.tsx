@@ -15,20 +15,22 @@ export const FInput: React.FC<FInputProps> = props => {
   const [field, meta] = useField({ name, type });
   const valid = (skipTouch || meta.touched) && !meta.error;
   const invalid = (skipTouch || meta.touched) && !!meta.error;
-  return <TextField
-    {...attr}
-    {...field}
-    type={type}
-    label={label}
-    id={field.name}
-    error={invalid}
-    focused={meta.touched}
-    value={field.value ?? ''}
-    autoComplete={field.value}
-    InputProps={InputProps(valid, invalid)}
-    helperText={meta.touched && meta.error}
-    color={validationStyles(valid, invalid)}
-  />;
+  return (
+    <TextField
+      {...attr}
+      {...field}
+      type={type}
+      label={label}
+      id={field.name}
+      error={invalid}
+      focused={meta.touched}
+      value={field.value ?? ''}
+      autoComplete={field.value}
+      InputProps={InputProps(valid, invalid)}
+      helperText={meta.touched && meta.error}
+      color={validationStyles(valid, invalid)}
+    />
+  );
 };
 
 export default memo(FInput);

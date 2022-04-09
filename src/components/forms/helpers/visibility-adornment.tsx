@@ -7,20 +7,26 @@ import { validationStyles } from './helpers';
 interface VisibilityAdornmentProps {
   valid: boolean
   invalid: boolean
+  disabled: boolean
   isVisible: boolean
-  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>
+  toggleIsVisible: () => void
 }
 
-export const VisibilityAdornment = memo<VisibilityAdornmentProps>(({ isVisible, setIsVisible, valid, invalid }) => {
-  return <InputAdornment position="end">
-    <IconButton
-      edge="end"
-      sx={{ marginRight: -1 }}
-      aria-label="toggle password visibility"
-      color={validationStyles(valid, invalid)}
-      onClick={() => setIsVisible(value => !value)}
-    >
-      { isVisible ? <VisibilityIcon /> : <VisibilityOffIcon /> }
-    </IconButton>
-  </InputAdornment>;
-});
+export const VisibilityAdornment = memo<VisibilityAdornmentProps>(
+  ({ disabled, isVisible, toggleIsVisible, valid, invalid }) => {
+    return (
+      <InputAdornment position="end">
+        <IconButton
+          edge="end"
+          disabled={disabled}
+          sx={{ marginRight: -1 }}
+          onClick={toggleIsVisible}
+          aria-label="toggle password visibility"
+          color={validationStyles(valid, invalid)}
+        >
+          { isVisible ? <VisibilityIcon /> : <VisibilityOffIcon /> }
+        </IconButton>
+      </InputAdornment>
+    );
+  }
+);

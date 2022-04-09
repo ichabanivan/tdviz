@@ -15,10 +15,12 @@ export const Translation = memo(() => {
     [i18n]
   );
   return config.DEBUG
-    ? <div>
-      <strong>EN</strong>
-      <Switch onChange={changeLanguage} />
-      <strong>UA</strong>
-    </div>
+    ? (
+      <div>
+        <strong>EN</strong>
+        <Switch onChange={changeLanguage} />
+        <strong>UA</strong>
+      </div>
+    )
     : null;
 });

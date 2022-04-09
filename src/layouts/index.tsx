@@ -7,7 +7,6 @@ import { App } from './app';
 import { Auth } from './auth';
 
 export const Root = () => {
-  // const { t }: ITranslation = useTranslation();
   const initialized = true;
   const health = true;
   const auth = false;
@@ -17,10 +16,12 @@ export const Root = () => {
   if (!initialized) {
     return <span>Preloader</span>;
   }
-  return <Routes>
-    <Route path={`${ROUTES.LAYOUT_APP}/*`} element={<App />} />
-    <Route path={`${ROUTES.LAYOUT_AUTH}/*`} element={<Auth />} />
-    <Route path="/*" element={<Navigate to={auth ? ROUTES.LAYOUT_APP : ROUTES.LAYOUT_AUTH} />} />
-  </Routes>;
+  return (
+    <Routes>
+      <Route path={`${ROUTES.LAYOUT_APP}/*`} element={<App />} />
+      <Route path={`${ROUTES.LAYOUT_AUTH}/*`} element={<Auth />} />
+      <Route path="/*" element={<Navigate to={auth ? ROUTES.LAYOUT_APP : ROUTES.LAYOUT_AUTH} />} />
+    </Routes>
+  );
 };
 

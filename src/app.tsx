@@ -1,5 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/material';
+import { SnackbarProvider } from 'notistack';
+import { Paper, Slide, ThemeProvider } from '@mui/material';
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -15,9 +16,18 @@ function App () {
   return (
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
-        <BrowserRouter>
-          <Root />
-        </BrowserRouter>
+        <SnackbarProvider
+          maxSnack={5}
+          preventDuplicate
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        >
+          <BrowserRouter>
+            <Root />
+          </BrowserRouter>
+        </SnackbarProvider>
       </ApolloProvider>
     </ThemeProvider>
   );

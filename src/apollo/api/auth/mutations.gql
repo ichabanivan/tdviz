@@ -3,3 +3,9 @@ mutation SignIn ($input: SignInInputDto!) {
         ...Token
     }
 }
+
+mutation SignUp ($input: SignUpInputDto!) {
+  signUp (input: $input) {
+    ...Token
+  }
+}
