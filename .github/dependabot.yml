@@ -12,3 +12,5 @@ updates:
           # Ignore some updates to the 'express' package
           - dependency-name: "@types/node"
             update-types: ["version-update:semver-major"]
+    # Allow up to 10 open pull requests
+    open-pull-requests-limit: 10
