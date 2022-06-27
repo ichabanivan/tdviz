@@ -8,3 +8,7 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+    ignore:
+          # Ignore some updates to the 'express' package
+          - dependency-name: "@types/node"
+            update-types: ["version-update:semver-major"]
