@@ -1,10 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import * as ROUTES from '~constants/routes';
+import * as ROUTES from '../../constants/routes';
 
-import { Layout } from '~layouts/app/layout';
-
+import { Layout } from './layout';
 import { System } from './system';
 
 export const App = () => {

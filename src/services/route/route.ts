@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-import _ from '~services/lodash';
+import _ from '../lodash';
 
 import { history } from './history';
 import { Parameter } from './parameter';

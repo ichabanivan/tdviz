@@ -1,15 +1,13 @@
 import React, { memo, ReactNode, useCallback, useState } from 'react';
-import { Box, Toolbar, List, Divider, IconButton, ListItemButton, ListItemIcon, ListItemText, Button, Avatar, Tooltip } from '@mui/material';
+import { Box, Toolbar, List, Divider, IconButton, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
-import _ from '~services/lodash';
+import _ from '../../../services/lodash';
+import logoSvg from '../../../assets/logo-white.svg';
+import { ChevronRightIcon, InboxIcon, MenuIcon } from '../../../components/icons';
 
-import { ChevronRightIcon, InboxIcon, MenuIcon } from '~components/icons';
-
-import { useLayouts } from '~layouts/app/layout/layouts';
-import { UserMenu } from '~layouts/app/layout/user-menu';
-import { AppBarStyled, DrawerStyled, HeaderStyled } from '~layouts/app/layout/styles';
-
-import logoSvg from '~assets/logo-white.svg';
+import { useLayouts } from './layouts';
+import { UserMenu } from './user-menu';
+import { AppBarStyled, DrawerStyled, HeaderStyled } from './styles';
 
 interface LayoutProps {
   children: ReactNode

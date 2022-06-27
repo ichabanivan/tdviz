@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import en from '~constants/en.json';
-import ua from '~constants/ua.json';
-import config from '~constants/config';
+import en from '../constants/en.json';
+import ua from '../constants/ua.json';
+import config from '../constants/config';
 
 export interface ITranslation {
   t: (value: string, options?: any) => string

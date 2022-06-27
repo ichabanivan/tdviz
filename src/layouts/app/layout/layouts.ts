@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-import { ITranslation } from '~services/i18n';
-
-import * as ROUTES from '~constants/routes';
+import * as ROUTES from '../../../constants/routes';
+import { ITranslation } from '../../../services/i18n';
 
 export const useLayouts = () => {
   const { t }: ITranslation = useTranslation();

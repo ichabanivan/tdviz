@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { Avatar, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 
-import { ITranslation } from '~services/i18n';
+import { ITranslation } from '../../../services/i18n';
 
 interface UserMenuProps {
   user: any // TODO

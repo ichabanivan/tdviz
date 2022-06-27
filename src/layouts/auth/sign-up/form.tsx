@@ -6,13 +6,11 @@ import { Button, Grid, Typography } from '@mui/material';
 import React, { memo, useCallback, useState } from 'react';
 import { AppRegistration as AppRegistrationIcon, Login as LoginIcon } from '@mui/icons-material';
 
-import { ITranslation } from '~services/i18n';
-
-import * as ROUTES from '~constants/routes';
-
-import { FInput } from '~components/forms/input';
-import { validationStyles } from '~components/forms/helpers/helpers';
-import { VisibilityAdornment } from '~components/forms/helpers/visibility-adornment';
+import * as ROUTES from '../../../constants/routes';
+import { ITranslation } from '../../../services/i18n';
+import { FInput } from '../../../components/forms/input';
+import { validationStyles } from '../../../components/forms/helpers/helpers';
+import { VisibilityAdornment } from '../../../components/forms/helpers/visibility-adornment';
 
 
 interface SignUpFormProps {

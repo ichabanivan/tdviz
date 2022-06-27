@@ -1,16 +1,13 @@
 import React from 'react';
 import { SnackbarProvider } from 'notistack';
-import { Paper, Slide, ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import client from '~apollo/client';
-
-import '~services/i18n';
-
-import { theme } from '~styles/theme';
-
+import './services/i18n';
 import { Root } from './layouts';
+import client from './apollo/client';
+import { theme } from './styles/theme';
 
 function App () {
   return (

@@ -4,12 +4,10 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useSignUpMutation } from '~apollo/graphql';
-
-import { ITranslation } from '~services/i18n';
-
-import * as ROUTES from '~constants/routes';
-import { VALIDATION_ERROR } from '~constants/errors';
+import * as ROUTES from '../../../constants/routes';
+import { ITranslation } from '../../../services/i18n';
+import { useSignUpMutation } from '../../../apollo/graphql';
+import { VALIDATION_ERROR } from '../../../constants/errors';
 
 interface ISignUpForm {
   email: string

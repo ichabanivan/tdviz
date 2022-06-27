@@ -2,9 +2,8 @@ import { Switch } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 
-import { LANGUAGES } from '~services/i18n';
-
-import config from '~constants/config';
+import config from '../constants/config';
+import { LANGUAGES } from '../services/i18n';
 
 export const Translation = memo(() => {
   const { i18n } = useTranslation();

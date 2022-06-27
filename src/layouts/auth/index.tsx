@@ -2,10 +2,9 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Card, CardMedia, Grid, Divider } from '@mui/material';
 
-import * as ROUTES from '~constants/routes';
-
-import logoSvg from '~assets/logo.svg';
-import { bg } from '~assets/cloudinary';
+import logoSvg from '../../assets/logo.svg';
+import { bg } from '../../assets/cloudinary';
+import * as ROUTES from '../../constants/routes';
 
 import { SignUp } from './sign-up';
 import { SignIn } from './sign-in';

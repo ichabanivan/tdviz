@@ -2,9 +2,8 @@ import { setContext } from '@apollo/client/link/context';
 import { ErrorHandler, onError } from '@apollo/client/link/error';
 import { ApolloLink, ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
-import { AuthService } from '~services/auth';
-
-import config from '~constants/config';
+import config from '../constants/config';
+import { AuthService } from '../services/auth';
 
 import typePolicies from './policies';
 

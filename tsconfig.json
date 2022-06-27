@@ -18,16 +18,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "paths": {
-      "~apollo/*": ["./apollo/*"],
-      "~assets/*": ["./assets/*"],
-      "~styles/*": ["./styles/*"],
-      "~layouts/*": ["./layouts/*"],
-      "~services/*": ["./services/*"],
-      "~constants/*": ["./constants/*"],
-      "~components/*": ["./components/*"]
-    }
+    "jsx": "react-jsx"
   }
 }

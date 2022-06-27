@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 
-import '~styles';
+import './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const container = document.getElementById('root')!;
