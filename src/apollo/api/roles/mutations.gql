@@ -1,0 +1,27 @@
+mutation DeleteRoles($input: [Int!]!) {
+  deleteRoles(input: $input)
+}
+
+mutation CreateRole($input: CreateRoleInputDto!) {
+  role: createRole(input: $input) {
+    ...FullRoleEntity
+  }
+}
+
+mutation UpdateRole($input: UpdateRoleInputDto!) {
+  role: updateRole(input: $input) {
+    ...FullRoleEntity
+  }
+}
+
+mutation addPermissionToRole($input: RolePermissionInputDto!) {
+  role: addPermissionToRole(input: $input) {
+    ...FullRoleEntity
+  }
+}
+
+mutation RemovePermissionFromRole($input: RolePermissionInputDto!) {
+  role: removePermissionFromRole(input: $input) {
+    ...FullRoleEntity
+  }
+}

@@ -1,11 +1,11 @@
 mutation SignIn ($input: SignInInputDto!) {
-    signIn (input: $input) {
-        ...Token
-    }
+  data: signIn (input: $input) {
+    ...Token
+  }
 }
 
 mutation SignUp ($input: SignUpInputDto!) {
-  signUp (input: $input) {
+  data: signUp (input: $input) {
     ...Token
   }
 }

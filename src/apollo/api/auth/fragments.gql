@@ -1,6 +1,4 @@
-fragment Token on TokenDto {
-    accessToken
-    refreshToken
-    accessTokenValiditySeconds
-    refreshTokenValiditySeconds
+fragment Token on TokenOutputDto {
+  accessToken
+  accessTokenValiditySeconds
 }

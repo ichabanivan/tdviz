@@ -11,7 +11,7 @@ type FInputProps = TextFieldProps & {
 }
 
 export const FInput: React.FC<FInputProps> = props => {
-  const { name, type, label, InputProps = () => ({}), skipTouch, ...attr } = props;
+  const { name, type, label, skipTouch, InputProps = () => ({}), ...attr } = props;
   const [field, meta] = useField({ name, type });
   const valid = (skipTouch || meta.touched) && !meta.error;
   const invalid = (skipTouch || meta.touched) && !!meta.error;
@@ -21,7 +21,6 @@ export const FInput: React.FC<FInputProps> = props => {
       {...field}
       type={type}
       label={label}
-      id={field.name}
       error={invalid}
       focused={meta.touched}
       value={field.value ?? ''}
@@ -29,6 +28,7 @@ export const FInput: React.FC<FInputProps> = props => {
       InputProps={InputProps(valid, invalid)}
       helperText={meta.touched && meta.error}
       color={validationStyles(valid, invalid)}
+      inputProps={{ 'data-testid': `input-${name}` }}
     />
   );
 };

@@ -1,0 +1,18 @@
+fragment FullRoleEntity on RoleEntity {
+  id
+  name
+  permissions {
+    ...FullPermissionEntity
+  }
+}
+
+fragment FullPaginationRolesOutputDto on PaginationRolesOutputDto {
+  content {
+    ...FullRoleEntity
+  }
+  offset
+  page
+  size
+  totalElements
+  totalPages
+}

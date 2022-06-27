@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import * as ROUTES from '../constants/routes';
+import { AppContext } from '../services/app.context';
 
 import { App } from './app';
 import { Auth } from './auth';
 
+
 export const Root = () => {
-  const initialized = true;
-  const health = true;
-  const auth = false;
-  if (!health) {
-    return <span>Site is under Maintenance</span>;
-  }
-  if (!initialized) {
-    return <span>Preloader</span>;
-  }
+  const { auth } = useContext(AppContext);
   return (
     <Routes>
       <Route path={`${ROUTES.LAYOUT_APP}/*`} element={<App />} />

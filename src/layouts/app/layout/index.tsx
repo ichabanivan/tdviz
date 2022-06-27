@@ -1,19 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import React, { memo, ReactNode, useCallback, useState } from 'react';
 import { Box, Toolbar, List, Divider, IconButton, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 import _ from '../../../services/lodash';
 import logoSvg from '../../../assets/logo-white.svg';
-import { ChevronRightIcon, InboxIcon, MenuIcon } from '../../../components/icons';
+import { ChevronRightIcon, MenuIcon } from '../../../components/icons';
 
 import { useLayouts } from './layouts';
 import { UserMenu } from './user-menu';
-import { AppBarStyled, DrawerStyled, HeaderStyled } from './styles';
+import { AppBarStyled, DRAWER_WIDTH, DrawerStyled, HeaderStyled } from './styles';
+
 
 interface LayoutProps {
   children: ReactNode
 }
 
 export const Layout = memo<LayoutProps>(({ children }) => {
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = useCallback(() => setOpen(true), []);
@@ -24,14 +28,14 @@ export const Layout = memo<LayoutProps>(({ children }) => {
   const layout = _.find(layouts, { id: 'system' });
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <>
       <AppBarStyled position="fixed" open={open}>
         <Toolbar>
           <IconButton
             edge="start"
             color="inherit"
             onClick={handleOpen}
-            sx={{ mr: 2, display: open ? 'none' : 'flex' }}
+            sx={{ mr: 4, display: open ? 'none' : 'flex' }}
           >
             <MenuIcon />
           </IconButton>
@@ -51,28 +55,28 @@ export const Layout = memo<LayoutProps>(({ children }) => {
         </HeaderStyled>
         <Divider />
         <List>
-          { layout?.list?.map(({ id, title, link }) => (
-            <ListItemButton key={id}>
+          { layout?.list?.map(({ id, title, link, Icon }) => (
+            <ListItemButton key={id} onClick={() => navigate(link)}>
               <ListItemIcon
                 sx={{
                   minWidth: 0,
-                  mr: open ? 2 : 'auto',
+                  mr: open ? 4 : 'auto',
                   justifyContent: 'center',
                 }}
               >
-                <InboxIcon />
+                <Icon />
               </ListItemIcon>
               <ListItemText primary={title} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           )) }
         </List>
       </DrawerStyled>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main">
         <HeaderStyled />
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ flexGrow: 1, ml: open ? `${DRAWER_WIDTH}px` : '57px', }}>
           { children }
         </Box>
       </Box>
-    </Box>
+    </>
   );
 });

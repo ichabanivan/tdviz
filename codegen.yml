@@ -2,6 +2,7 @@ watch: true
 watchConfig:
   usePolling: true
 overwrite: true
+
 schema:
   - "${REACT_APP_BE_PROTOCOL}://${REACT_APP_BE_HOST}:${REACT_APP_BE_PORT}/${REACT_APP_BE_URL}":
       headers:

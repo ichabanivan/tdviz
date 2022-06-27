@@ -1,4 +1,4 @@
-import { AppBar, AppBarProps, Drawer } from '@mui/material';
+import { AppBar, AppBarProps, Box, Drawer } from '@mui/material';
 import { CSSObject, styled, Theme } from '@mui/material/styles';
 
 export const DRAWER_WIDTH = 240;
@@ -9,7 +9,7 @@ export const closedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-  width: `calc(${theme.spacing(10)} + 1px)`,
+  width: `calc(${theme.spacing(11)} + 1px)`,
 });
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -45,6 +45,18 @@ export const DrawerStyled = styled(Drawer, { shouldForwardProp: (prop) => prop !
     }),
   }),
 );
+
+// export const MainStyled = styled(Box, { shouldForwardProp: (prop) => prop !== 'open' })(
+//   ({ theme, open } : { open: boolean, theme: Theme }) => ({
+//     // sx={{ flexGrow: 1, maxWidth: "calc(100% - 66px)" }}
+//     // maxWidth: DRAWER_WIDTH,
+//     ...(open ? {
+//       maxWidth: `calc(100% - (${theme.spacing(11)} + 1px))`,
+//     } : {
+//       maxWidth: `calc(100% - ${DRAWER_WIDTH})`,
+//     }),
+//   }),
+// );
 
 interface IAppBarProps extends AppBarProps {
   open?: boolean;

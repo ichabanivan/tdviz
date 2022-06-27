@@ -1,0 +1,16 @@
+fragment FullPermissionEntity on PermissionEntity {
+  id
+  name
+  category
+}
+
+fragment FullPaginationPermissionsOutputDto on PaginationPermissionsOutputDto {
+  content {
+    ...FullPermissionEntity
+  }
+  offset
+  page
+  size
+  totalElements
+  totalPages
+}

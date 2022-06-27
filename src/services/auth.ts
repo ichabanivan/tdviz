@@ -1,3 +1,5 @@
+import { TokenFragment } from '../apollo/graphql';
+
 import _ from './lodash';
 
 export class AuthService {
@@ -5,23 +7,25 @@ export class AuthService {
 
   static signOut () {
     AuthService.removeToken();
-    window.location.reload();
+    location.reload();
   }
 
   static removeToken () {
-    localStorage.remove(AuthService.AUTH_STORAGE);
+    localStorage.removeItem(AuthService.AUTH_STORAGE);
   }
 
-  static getToken () {
+  static getToken (): TokenFragment | null {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const data: string = localStorage.getItem(AuthService.AUTH_STORAGE)!;
-    const token = JSON.parse(data);
-    return token;
+    if (data) {
+      return JSON.parse(data);
+    }
+    return null;
   }
 
-  static saveToken (data: Map<any, any>) {
+  static saveToken (data?: TokenFragment) {
     const result = JSON.stringify(data);
-    localStorage.set(AuthService.AUTH_STORAGE, result);
+    localStorage.setItem(AuthService.AUTH_STORAGE, result);
     return result;
   }
 

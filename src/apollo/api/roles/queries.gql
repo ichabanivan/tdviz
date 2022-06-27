@@ -1,0 +1,24 @@
+
+query FilterRoles($filter: FilterRolesInputDto!, $pagination: PaginationInputDto!) {
+  roles: filterRoles(filter: $filter, pagination: $pagination) {
+    ...FullPaginationRolesOutputDto
+  }
+}
+
+query GetRole($id: Int!) {
+  role: getRole(id: $id) {
+    ...FullRoleEntity
+  }
+}
+
+query FilterRolesPermissions(
+  $filterRoles: FilterRolesInputDto!, $pagination: PaginationInputDto!,
+  $filterPermissions: FilterPermissionsInputDto!,
+) {
+  roles: filterRoles(filter: $filterRoles, pagination: $pagination) {
+    ...FullPaginationRolesOutputDto
+  },
+  permissions: filterPermissions(filter: $filterPermissions, pagination: $pagination) {
+    ...FullPaginationPermissionsOutputDto
+  }
+}

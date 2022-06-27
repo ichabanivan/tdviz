@@ -1,0 +1,21 @@
+fragment FullUserEntity on UserEntity {
+  id
+  email
+  status
+  firstName
+  lastName
+  roles {
+    ...FullRoleEntity
+  }
+}
+
+fragment FullPaginationUsersOutputDto on PaginationUsersOutputDto {
+  content {
+    ...FullUserEntity
+  }
+  offset
+  page
+  size
+  totalElements
+  totalPages
+}

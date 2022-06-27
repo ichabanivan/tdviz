@@ -1,0 +1,11 @@
+query FilterUsers($filter: FilterUsersInputDto!, $pagination: PaginationInputDto!) {
+  users: filterUsers(filter: $filter, pagination: $pagination) {
+    ...FullPaginationUsersOutputDto
+  }
+}
+
+query Me {
+  me {
+    ...FullUserEntity
+  }
+}

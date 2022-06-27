@@ -1,0 +1,3 @@
+mutation DeletePermissions($input: [Int!]!) {
+  deletePermissions(input: $input)
+}

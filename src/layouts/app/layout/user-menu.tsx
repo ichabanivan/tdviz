@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useContext, useState } from 'react';
 import { Avatar, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
 
+import AuthService from '../../../services/auth';
 import { ITranslation } from '../../../services/i18n';
+import { AppContext } from '../../../services/app.context';
 
 interface UserMenuProps {
   user: any // TODO
@@ -10,8 +12,9 @@ interface UserMenuProps {
 }
 
 export const UserMenu = memo<UserMenuProps>(({ user, menu }) => {
-  const { t }: ITranslation = useTranslation();
-  const [anchorUser, setAnchorUser] = React.useState<null | HTMLElement>(null);
+  const { t } : ITranslation = useTranslation();
+  const { updateCtrl } = useContext(AppContext);
+  const [anchorUser, setAnchorUser] = useState<null | HTMLElement>(null);
   const handleCloseUserMenu = useCallback(() => setAnchorUser(null), []);
   const handleOpenUserMenu = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorUser(event.currentTarget);
@@ -36,6 +39,9 @@ export const UserMenu = memo<UserMenuProps>(({ user, menu }) => {
             <Typography textAlign="center">{ title }</Typography>
           </MenuItem>
         )) }
+        <MenuItem onClick={() => AuthService.signOut()}>
+          <Typography textAlign="center">Sign Out</Typography>
+        </MenuItem>
       </Menu>
     </>
   );

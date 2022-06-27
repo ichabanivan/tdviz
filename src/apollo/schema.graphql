@@ -1,26 +1,124 @@
-input CreateUserInput {
+input CreatePermissionInputDto {
+  name: String!
+}
+
+input CreateRoleInputDto {
+  name: String!
+}
+
+input CreateUserInputDto {
   email: String!
   password: String!
 }
 
-input FindUserInput {
-  email: String!
-  id: Int!
-  password: String
+input FilterPermissionsInputDto {
+  excludeIds: [Int!]
+  id: Int
+  includeIds: [Int!]
+}
+
+input FilterRolesInputDto {
+  excludeIds: [Int!]
+  id: Int
+  includeIds: [Int!]
+}
+
+input FilterUsersInputDto {
+  email: String
+  excludeIds: [Int!]
+  firstName: String
+  id: Int
+  includeIds: [Int!]
+  lastName: String
+  search: String
+}
+
+type HealthOutputDto {
+  appConnection: ServiceStatus!
+  databaseConnection: ServiceStatus!
+  internetConnection: ServiceStatus!
 }
 
 type Mutation {
-  createUser(input: CreateUserInput!): User!
-  deleteUser(input: [Int!]!): Boolean!
-  signIn(input: SignInInputDto!): TokenDto!
-  signUp(input: SignUpInputDto!): TokenDto!
-  updateUser(input: UpdateUserInput!): User!
+  addPermissionToRole(input: RolePermissionInputDto!): RoleEntity!
+  createPermission(input: CreatePermissionInputDto!): PermissionEntity!
+  createRole(input: CreateRoleInputDto!): RoleEntity!
+  createUser(input: CreateUserInputDto!): UserEntity!
+  deletePermissions(input: [Int!]!): Boolean!
+  deleteRoles(input: [Int!]!): Boolean!
+  deleteUsers(input: [Int!]!): Boolean!
+  removePermissionFromRole(input: RolePermissionInputDto!): RoleEntity!
+  signIn(input: SignInInputDto!): TokenOutputDto!
+  signUp(input: SignUpInputDto!): TokenOutputDto!
+  updatePermission(input: UpdatePermissionInputDto!): PermissionEntity!
+  updateRole(input: UpdateRoleInputDto!): RoleEntity!
+  updateUser(input: UpdateUserInputDto!): UserEntity!
+}
+
+input PaginationInputDto {
+  page: Int = 0
+  size: Int = 20
+  sort: [SortInputDto!] = [{direction: DESC, field: "id"}]
+}
+
+type PaginationPermissionsOutputDto {
+  content: [PermissionEntity!]!
+  offset: Int!
+  page: Int!
+  size: Int!
+  totalElements: Int!
+  totalPages: Int!
+}
+
+type PaginationRolesOutputDto {
+  content: [RoleEntity!]!
+  offset: Int!
+  page: Int!
+  size: Int!
+  totalElements: Int!
+  totalPages: Int!
+}
+
+type PaginationUsersOutputDto {
+  content: [UserEntity!]!
+  offset: Int!
+  page: Int!
+  size: Int!
+  totalElements: Int!
+  totalPages: Int!
+}
+
+type PermissionEntity {
+  category: String!
+  id: Int!
+  name: String!
 }
 
 type Query {
-  filterUsers(input: FindUserInput!): [User!]!
-  getUserById(id: Float!): User!
-  test: String!
+  filterPermissions(filter: FilterPermissionsInputDto!, pagination: PaginationInputDto!): PaginationPermissionsOutputDto!
+  filterRoles(filter: FilterRolesInputDto!, pagination: PaginationInputDto!): PaginationRolesOutputDto!
+  filterUsers(filter: FilterUsersInputDto!, pagination: PaginationInputDto!): PaginationUsersOutputDto!
+  getPermission(id: Int!): PermissionEntity!
+  getRole(id: Int!): RoleEntity!
+  getUser(id: Int!): UserEntity!
+  health: HealthOutputDto!
+  me: UserEntity!
+}
+
+type RoleEntity {
+  id: Int!
+  name: String!
+  permissions: [PermissionEntity!]
+}
+
+input RolePermissionInputDto {
+  permissionId: Int!
+  roleId: Int!
+}
+
+enum ServiceStatus {
+  DOWN
+  UP
 }
 
 input SignInInputDto {
@@ -35,21 +133,47 @@ input SignUpInputDto {
   password: String!
 }
 
-type TokenDto {
+enum SortDirection {
+  ASC
+  DESC
+}
+
+input SortInputDto {
+  direction: SortDirection!
+  field: String!
+}
+
+type TokenOutputDto {
   accessToken: String!
   accessTokenValiditySeconds: Int!
-  refreshToken: String!
-  refreshTokenValiditySeconds: Int!
 }
 
-input UpdateUserInput {
-  email: String!
+input UpdatePermissionInputDto {
   id: Int!
-  password: String
+  name: String!
 }
 
-type User {
-  email: String!
-  enabled: Boolean!
+input UpdateRoleInputDto {
   id: Int!
+  name: String!
+}
+
+input UpdateUserInputDto {
+  firstName: String!
+  id: Int!
+  lastName: String!
+}
+
+type UserEntity {
+  email: String!
+  firstName: String
+  id: Int!
+  lastName: String
+  roles: [RoleEntity!]
+  status: UserStatus
+}
+
+enum UserStatus {
+  DISABLED
+  ENABLED
 }

@@ -12,22 +12,17 @@ import { FInput } from '../../../components/forms/input';
 import { validationStyles } from '../../../components/forms/helpers/helpers';
 import { VisibilityAdornment } from '../../../components/forms/helpers/visibility-adornment';
 
-
-interface SignUpFormProps {
-  loading: boolean
-}
-
-export const SignUpForm = memo<SignUpFormProps>(({ loading }) => {
-  const { t }: ITranslation = useTranslation();
+export const SignUpForm = memo(() => {
+  const { t } : ITranslation = useTranslation();
 
   const [isVisible, setIsVisible] = useState(false);
   const toggleIsVisible = useCallback(() => setIsVisible(value => !value), []);
 
-  const { isSubmitting, isValid, submitCount } = useFormikContext();
-  const valid = submitCount >= 1 ? isValid : false;
-  const invalid = submitCount >= 1 ? !isValid : false;
+  const { isSubmitting, isValid, submitCount, dirty } = useFormikContext();
+  const valid = (submitCount >= 1 || dirty) ? isValid : false;
+  const invalid = (submitCount >= 1 || dirty) ? !isValid : false;
 
-  const isDisabled = isSubmitting || loading;
+  const isDisabled = isSubmitting;
 
   return (
     <Form>
@@ -123,8 +118,8 @@ export const SignUpForm = memo<SignUpFormProps>(({ loading }) => {
           fullWidth
           type="submit"
           sx={{ mb: 3 }}
-          loading={loading}
           variant="contained"
+          loading={isDisabled}
           disabled={isDisabled}
           loadingPosition="start"
           startIcon={<LoginIcon />}

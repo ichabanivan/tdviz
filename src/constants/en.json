@@ -2,7 +2,14 @@
   "translation": {
     "project": "Safe Health",
     "system": {
-      "open-menu": "Open Menu"
+      "open-menu": "Open Menu",
+        "maintenance": {
+          "title": "Maintenance",
+          "description": "We are currently working hard on fixing this issue.",
+          "footer": "Please comeback again later.",
+          "available": "Application is currently available",
+          "unavailable": "Application is currently unavailable"
+        }
     },
     "actions": {
       "ok": "Ok",
@@ -24,49 +31,57 @@
     },
     "forms": {
       "validate": {
-        "STRING": "Must be a string",
-        "NUMBER": "Must be a number",
-        "INVALID_EMAIL": "E-mail is invalid",
-        "UNIQUE": "Field must be unique",
-        "UNIQUE_DATE": "Date must be unique",
-        "UNIQUE_COLOR": "Color must be unique",
-        "UNIQUE_PROPERTY": "Property must be unique",
-        "INVALID_DATE": "Invalid date format",
-        "REQUIRED_FIELD": "Field is required",
-        "PASSWORD_MATCH": "Password must match",
-        "ONLY_DIGITS": "Field must contain only digits",
-        "DEFINED_FIELD": "{{entity}} should be defined",
-        "ONE_OF_POSITIVE": "One of the fields must be positive",
-        "MIN_DATE": "Selected date cannot be before {{minLength}}",
-        "MULTIPLE_ROLE": "Can't assign for user more than one role",
-        "MAX_DATE": "Selected date cannot be later then {{maxLength}}",
-        "MIN_LENGTH": "At least {{minLength}} {{entity}} should be presented",
-        "MAX_LENGTH": "At maximum {{maxLength}} {{entity}} should be presented",
-        "MIN_VALUE": "Min value {{value}}",
-        "MAX_VALUE": "Max value {{value}}",
-        "POSITIVE": "Must be a positive number",
-        "INTEGER": "Must be an integer",
-        "EQUAL": "{{entity}} should be equal to {{equalEntity}}",
-        "USER_ALREADY_EXIST": "User with such an email already exists.",
-        "TENANT_ALREADY_EXIST": "Tenant with such an email already exists.",
-        "LESS": "{{entity}} should be equal to or less than {{equalEntity}}",
-        "EQUAL_OR_LESS": "{{entity}} should be equal to or less than {{equalEntity}}",
-        "MIN_LENGTH_CHARACTERS": "Field must contain at least {{minLength}} characters",
-        "MAX_LENGTH_CHARACTERS": "The maximum number of characters for the field is {{maxLength}}"
+      "STRING": "Must be a string",
+      "NUMBER": "Must be a number",
+      "INVALID_EMAIL": "Sorry, only letters (a-z), numbers (0-9), and periods (.) are allowed.",
+      "UNIQUE": "Field must be unique",
+      "UNIQUE_DATE": "Date must be unique",
+      "UNIQUE_COLOR": "Color must be unique",
+      "UNIQUE_PROPERTY": "Property must be unique",
+      "INVALID_DATE": "Invalid date format",
+      "REQUIRED_FIELD": "Field is required",
+      "PASSWORD_MATCH": "Password must match",
+      "ONLY_DIGITS": "Field must contain only digits",
+      "DEFINED_FIELD": "{{entity}} should be defined",
+      "ONE_OF_POSITIVE": "One of the fields must be positive",
+      "MIN_DATE": "Selected date cannot be before {{minLength}}",
+      "MULTIPLE_ROLE": "Can't assign for user more than one role",
+      "MAX_DATE": "Selected date cannot be later then {{maxLength}}",
+      "MIN_LENGTH": "At least {{minLength}} {{entity}} should be presented",
+      "MAX_LENGTH": "At maximum {{maxLength}} {{entity}} should be presented",
+      "MIN_VALUE": "Min value {{value}}",
+      "MAX_VALUE": "Max value {{value}}",
+      "POSITIVE": "Must be a positive number",
+      "INTEGER": "Must be an integer",
+      "EQUAL": "{{entity}} should be equal to {{equalEntity}}",
+      "USER_ALREADY_EXIST": "User with such an email already exists.",
+      "TENANT_ALREADY_EXIST": "Tenant with such an email already exists.",
+      "LESS": "{{entity}} should be equal to or less than {{equalEntity}}",
+      "EQUAL_OR_LESS": "{{entity}} should be equal to or less than {{equalEntity}}",
+      "MIN_LENGTH_CHARACTERS": "Field must contain at least {{minLength}} characters",
+      "MAX_LENGTH_CHARACTERS": "The maximum number of characters for the field is {{maxLength}}"
       },
       "placeholders": {
-        "email": "Email",
-        "password": "Password",
-        "lastName": "Last Name",
-        "firstName": "First Name",
-        "confirmPassword": "Confirm Password"
+      "name": "Name",
+      "email": "Email",
+      "search": "Search",
+      "status": "Status",
+      "password": "Password",
+          "birthday": "Birthday",
+          "lastName": "Last Name",
+      "firstName": "First Name",
+      "confirmPassword": "Confirm Password"
       },
       "labels": {
-        "email": "Email",
-        "password": "Password",
-        "lastName": "Last Name",
-        "firstName": "First Name",
-        "confirmPassword": "Confirm Password"
+      "name": "Name",
+      "email": "Email",
+      "search": "Search",
+          "status": "Status",
+          "password": "Password",
+          "birthday": "Birthday",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+          "confirmPassword": "Confirm Password"
       }
     },
     "errors": {
@@ -76,57 +91,107 @@
     },
     "layouts": {
       "auth": {
-        "title": "Auth",
-        "sign-in": {
-          "cta": {
-            "sign-in": "Sign In",
-            "sign-up": "Sign Up"
-          },
-          "general": {
-            "title": "Sign In"
-          },
-          "notifications": {
-            "success": {
-              "sign-in": "Welcome"
-            },
-            "error": {
-
-            },
-            "confirm": {
-
-            }
-          }
+      "title": "Auth",
+      "sign-in": {
+        "cta": {
+        "sign-in": "Sign In",
+        "sign-up": "Sign Up"
         },
-        "sign-up": {
-          "cta": {
-            "sign-in": "Sign In",
-            "sign-up": "Sign Up"
-          },
-          "general": {
-            "title": "Sign Up"
-          },
-          "notifications": {
-            "success": {
-              "sign-up": "You have been successfully registered. Please check your email."
-            },
-            "error": {
+        "general": {
+        "title": "Sign In"
+        },
+        "notifications": {
+        "success": {
+          "sign-in": "Welcome"
+        },
+        "error": {
 
-            },
-            "confirm": {
+        },
+        "confirm": {
 
-            }
-          }
+        }
         }
       },
-      "system": {
-        "title": "System",
-        "menu": {
-          "home": "Home",
-          "users": "Users"
+      "sign-up": {
+        "cta": {
+        "sign-in": "Sign In",
+        "sign-up": "Sign Up"
         },
-        "users": {
-          "title": "Users"
+        "general": {
+        "title": "Sign Up"
+        },
+        "notifications": {
+        "success": {
+          "sign-up": "You have been successfully registered. Please check your email."
+        },
+        "error": {
+
+        },
+        "confirm": {
+
         }
+        }
+      }
+      },
+      "system": {
+      "title": "System",
+      "menu": {
+        "home": "Home",
+        "users": "Users"
+      },
+      "users": {
+        "cta": {
+        "apply-search": "Apply Search",
+        "clear-search": "Clear Search",
+        "open-filters": "Open Filters",
+        "close-filters": "Close Filters"
+        },
+        "general": {
+        "title": "Users",
+        "id": "User ID",
+        "email": "Email",
+        "status": "Status",
+        "firstName": "First Name",
+        "lastName": "Last Name"
+        },
+        "notifications": {
+        "success": {
+
+        },
+        "error": {
+
+        },
+        "confirm": {
+
+        }
+        }
+      },
+      "roles": {
+        "cta": {
+
+        },
+        "general": {
+        "title": "Roles",
+        "create-role": "Create Role",
+        "update-role": "Update Role",
+        "table-title": "Roles/Permission",
+        "creation-description": "Create a new role to attach new permissions to it."
+        },
+        "notifications": {
+        "success": {
+                "role-deleted": "Role has been successfully deleted",
+                "role-created": "Role has been successfully created",
+                "permission-added": "Permission has been successfully added",
+                "permission-removed": "Permission has been successfully removed"
+        },
+        "error": {
+
+        },
+        "confirm": {
+
+        }
+        }
+      }
       }
     }
   }

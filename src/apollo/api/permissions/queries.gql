@@ -1,0 +1,6 @@
+
+query FilterPermissions($filter: FilterPermissionsInputDto!, $pagination: PaginationInputDto!) {
+  permissions: filterPermissions(filter: $filter, pagination: $pagination) {
+    ...FullPaginationPermissionsOutputDto
+  }
+}

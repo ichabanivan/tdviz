@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": [
+    "jest",
     "react",
     "jsx-a11y",
     "import",
@@ -18,12 +19,21 @@
   "root": true,
   "env": {
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest/globals": true
+  },
+  "globals": {
+    "NodeJS": true
   },
   "ignorePatterns": [
     "test/**/*"
   ],
   "rules": {
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
     "no-unused-vars": "off",
     "space-infix-ops": "off",
     "@typescript-eslint/space-infix-ops": ["error", { "int32Hint": false }],

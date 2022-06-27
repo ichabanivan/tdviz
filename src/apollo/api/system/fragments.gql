@@ -1,0 +1,5 @@
+fragment FullHealthOutputDto on HealthOutputDto {
+  appConnection
+  databaseConnection
+  internetConnection
+}

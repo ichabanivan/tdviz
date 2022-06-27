@@ -6,12 +6,13 @@ import logoSvg from '../../assets/logo.svg';
 import { bg } from '../../assets/cloudinary';
 import * as ROUTES from '../../constants/routes';
 
-import { SignUp } from './sign-up';
 import { SignIn } from './sign-in';
+import { SignUp } from './sign-up';
+
 
 export const Auth = () => (
   <Grid container minHeight="100vh" p={2} style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
-    <Grid item xs={12} md={6} lg={4} m="auto">
+    <Grid item xs={12} sm={8} md={6} lg={4} m="auto">
       <Card>
         <CardMedia
           component="img"
