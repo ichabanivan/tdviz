@@ -17,24 +17,6 @@
     "editorconfig:checker": "editorconfig-checker --exclude '.git|node_modules'",
     "generate": "DOTENV_CONFIG_PATH=./.env graphql-codegen --config codegen.yml --require dotenv/config"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@date-io/moment": "^2.14.0",
@@ -79,6 +61,7 @@
     "@typescript-eslint/parser": "^5.29.0",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.18.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-jsx-a11y": "^6.6.0",
