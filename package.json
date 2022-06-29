@@ -16,10 +16,6 @@
     "generate": "DOTENV_CONFIG_PATH=./.env graphql-codegen --config codegen.yml --require dotenv/config",
     "editorconfig": "editorconfig-checker --exclude '.git|node_modules'",
     "start:development": "concurrently npm:start npm:generate",
-    "check": "concurrently npm:check:* --kill-others",
-    "check:test": "CI=true npm run test",
-    "check:eslint": "npm run eslint",
-    "check:editorconfig": "npm run editorconfig",
     "prepare:husky": "husky install"
   },
   "dependencies": {
