@@ -8,12 +8,13 @@ import { DesktopDatePickerProps } from '@mui/x-date-pickers/DesktopDatePicker/De
 
 import { validationStyles } from './helpers/helpers';
 
-interface FDatePickerProps extends Partial<DesktopDatePickerProps> {
+interface FDatePickerProps extends Partial<DesktopDatePickerProps<any, any>> {
   name: string
   skipTouch?: boolean
   fieldProps: TextFieldProps
 }
 
+// TODO Check implementation
 export const FDatePicker: React.FC<FDatePickerProps> = props => {
   const { name, label, skipTouch, fieldProps, ...attr } = props;
   const [field, meta, helpers] = useField({ name });
@@ -40,7 +41,6 @@ export const FDatePicker: React.FC<FDatePickerProps> = props => {
         )}
       />
     </LocalizationProvider>
-
   );
 };
 
